@@ -35,8 +35,6 @@ export const refreshToken = (): Promise<TRefreshResponse> =>
       return refreshData;
     });
 
-/* Это предпочтительны способ обновления токена, но допустимы и другие, главное,
-что бы обновление токена работало корректно */
 export const fetchWithRefresh = async <T>(
   url: RequestInfo,
   options: RequestInit
@@ -75,7 +73,7 @@ type TOrdersResponse = TServerResponse<{
 
 export const getIngredientsApi = () =>
   fetch(`${URL}/ingredients`)
-    .then((res) => checkResponse<TIngredientsResponse>(res))
+    .then((result) => checkResponse<TIngredientsResponse>(result))
     .then((data) => {
       if (data?.success) return data.data;
       return Promise.reject(data);
@@ -101,7 +99,7 @@ export const getOrdersApi = () =>
     return Promise.reject(data);
   });
 
-type TNewOrderResponse = TServerResponse<{
+export type TNewOrderResponse = TServerResponse<{
   order: TOrder;
   name: string;
 }>;

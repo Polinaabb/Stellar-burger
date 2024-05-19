@@ -5,12 +5,12 @@ import styles from './constructor-page.module.css';
 import { BurgerIngredients } from '../../components';
 import { BurgerConstructor } from '../../components';
 import { Preloader } from '../../components/ui';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import { getIsIngLoading } from '../../services/slices/ingredientSlice';
 
 export const ConstructorPage: FC = () => {
-  const isIngredientsLoading = useSelector(
-    (state) => state.ingredients.isLoading
-  );
+  /** TODO: взять переменную из стора */
+  const isIngredientsLoading = useSelector(getIsIngLoading);
 
   return (
     <>
