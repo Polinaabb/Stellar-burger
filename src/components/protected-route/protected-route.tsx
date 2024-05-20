@@ -18,8 +18,8 @@ export const ProtectedRouteElement = ({
     return <Navigate to='/login' state={{ from: location }} />;
 
   if (unAuth && user) {
-    const { from } = location.state || { pathname: '/' };
-    return <Navigate to={from} />;
+    const from = location.state?.from || { pathname: '/' };
+    return <Navigate replace to={from} />;
   }
 
   return element;

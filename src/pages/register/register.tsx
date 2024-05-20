@@ -3,12 +3,14 @@ import { RegisterUI } from '@ui-pages';
 import { useDispatch } from '../../services/store';
 import { TRegisterData } from '@api';
 import { register, clearError } from '../../services/slices/authorizationSlice';
+import { useNavigate } from 'react-router';
 
 export const Register: FC = () => {
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(clearError());
@@ -22,6 +24,7 @@ export const Register: FC = () => {
       password
     };
     dispatch(register(regData));
+    navigate('/');
   };
 
   return (

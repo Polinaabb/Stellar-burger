@@ -44,17 +44,15 @@ const App = () => {
           <Route index element={<Feed />} />
           <Route path=':number' element={<OrderInfo />} />
         </Route>
-        <Route path='/profile'>
-          <Route index element={<OnlyAuth element={<Profile />} />} />
-          <Route
-            path='orders'
-            element={<OnlyAuth element={<ProfileOrders />} />}
-          />
-          <Route
-            path='orders/:number'
-            element={<OnlyAuth element={<OrderInfo />} />}
-          />
-        </Route>
+        <Route path='/profile' element={<OnlyAuth element={<Profile />} />} />
+        <Route
+          path='/profile/orders'
+          element={<OnlyAuth element={<ProfileOrders />} />}
+        />
+        <Route
+          path='/profile/orders/:number'
+          element={<OnlyAuth element={<OrderInfo />} />}
+        />
         <Route path='/ingredients/:id' element={<IngredientDetails />} />
         <Route path='/login' element={<OnlyUnAuth element={<Login />} />} />
         <Route
@@ -94,7 +92,7 @@ const App = () => {
             path='/profile/orders/:number'
             element={
               <Modal onClose={handleModalClose} title={'Детали заказа:'}>
-                <OnlyAuth element={<OrderInfo />} />
+                <OrderInfo />
               </Modal>
             }
           />

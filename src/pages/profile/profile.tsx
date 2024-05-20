@@ -11,7 +11,7 @@ export const Profile: FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [isFormChanged, setFormChanged] = useState<any>(false);
+  const [isFormChanged, setFormChanged] = useState<boolean>(false);
 
   const [formValue, setFormValue] = useState({
     name: user.name,

@@ -15,9 +15,9 @@ export const ProfileUI: FC<ProfileUIProps> = ({
   handleCancel,
   handleInputChange
 }) => {
-  const nameRef = useRef<HTMLInputElement>();
-  const emailRef = useRef<HTMLInputElement>();
-  const passRef = useRef<HTMLInputElement>();
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passRef = useRef<HTMLInputElement>(null);
   const [isEditName, setIsEditName] = useState(true);
   const [isEditEmail, setIsEditEmail] = useState(true);
   const [isEditPass, setIsEditPass] = useState(true);
@@ -60,7 +60,7 @@ export const ProfileUI: FC<ProfileUIProps> = ({
         <>
           <div className='pb-6'>
             <Input
-              ref={nameRef as any}
+              ref={nameRef}
               type={'text'}
               placeholder={'Имя'}
               onChange={handleInputChange}
@@ -77,7 +77,7 @@ export const ProfileUI: FC<ProfileUIProps> = ({
           </div>
           <div className='pb-6'>
             <Input
-              ref={emailRef as any}
+              ref={emailRef}
               type={'email'}
               placeholder={'E-mail'}
               onChange={handleInputChange}
@@ -94,7 +94,7 @@ export const ProfileUI: FC<ProfileUIProps> = ({
           </div>
           <div className='pb-6'>
             <Input
-              ref={passRef as any}
+              ref={passRef}
               type={'password'}
               placeholder={'Пароль'}
               onChange={handleInputChange}
