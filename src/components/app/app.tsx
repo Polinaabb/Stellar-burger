@@ -44,15 +44,13 @@ const App = () => {
           <Route index element={<Feed />} />
           <Route path=':number' element={<OrderInfo />} />
         </Route>
-        <Route path='/profile' element={<OnlyAuth element={<Profile />} />} />
-        <Route
-          path='/profile/orders'
-          element={<OnlyAuth element={<ProfileOrders />} />}
-        />
-        <Route
-          path='/profile/orders/:number'
-          element={<OnlyAuth element={<OrderInfo />} />}
-        />
+        <Route path='/profile'>
+          <Route index element={<OnlyAuth element={<Profile />} />} />
+          <Route path='orders'>
+            <Route index element={<ProfileOrders />} />
+            <Route path='orders/:number' element={<OrderInfo />} />
+          </Route>
+        </Route>
         <Route path='/ingredients/:id' element={<IngredientDetails />} />
         <Route path='/login' element={<OnlyUnAuth element={<Login />} />} />
         <Route
